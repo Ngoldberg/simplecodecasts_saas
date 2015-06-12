@@ -1,9 +1,9 @@
 $(document).ready(function() {
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
   //watch for a form submission:
-  $('#form-submit-btn').click(function(event) {
+  $("#form-submit-btn").click(function(event) {
     event.preventDefault();
-    $('input[type=submit]').prop('disable', true);
+    $('input[type=submit]').prop('disabled', true);
     var error = false;
     var ccNum = $('#card_number').val(),
         cvcNum = $('#card_code').val(),
@@ -31,6 +31,7 @@ $(document).ready(function() {
     
     //add the token to the from
     f.append('<input type="hidden" name="user[stripe_card_token]" value="' + token + '" />');
+    
     //submit the form:
     f.get(0).submit();
   }
